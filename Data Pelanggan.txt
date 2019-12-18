@@ -7,14 +7,6 @@ Nama     : Kadhafi
 No. Hp   : 12
 Alamat   : Bandung
 ====== Data Pelanggan ======
-Nama     : Lisa
-No. Hp   : 123
-Alamat   : Cimerak
-====== Data Pelanggan ======
-Nama     : nama
-No. Hp   : no_hp
-Alamat   : alamat
-====== Data Pelanggan ======
 Nama     : Abdul Hadi
 No. Hp   : 081
 Alamat   : Garut

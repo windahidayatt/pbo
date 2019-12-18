@@ -26,7 +26,11 @@ public class Cafe2 extends JFrame {
         // TODO add your code here
         a.saya_memilih_jenis_order(1);
         NomorMeja.setEditable(true);
-
+        jmlNasiGoreng.setEnabled(true);
+        jmlNasiAyamGeprek.setEnabled(true);
+        jmlNasiAyamBakar.setEnabled(true);
+        jmlTehManis.setEnabled(true);
+        okmenu.setEnabled(true);
     }
 
     private void TakeAwayActionPerformed(ActionEvent e) {
@@ -34,13 +38,12 @@ public class Cafe2 extends JFrame {
         a.saya_memilih_jenis_order(2);
         a.mencatat_keterangan_order("Take Away");
         NomorMeja.setEditable(false);
+        jmlNasiGoreng.setEnabled(true);
+        jmlNasiAyamGeprek.setEnabled(true);
+        jmlNasiAyamBakar.setEnabled(true);
+        jmlTehManis.setEnabled(true);
+        okmenu.setEnabled(true);
     }
-
-    private void buttonokActionPerformed(ActionEvent e) {
-        // TODO add your code here
-        a.mencatat_keterangan_order(NomorMeja.getText());
-    }
-
 
     private void data_pelangganActionPerformed(ActionEvent e) {
         // TODO add your code here
@@ -58,6 +61,7 @@ public class Cafe2 extends JFrame {
         String tempNama;
         int tempHarga, tempJml;
 
+        a.mencatat_keterangan_order(NomorMeja.getText());
         if((Integer)jmlNasiGoreng.getValue() > 0)
         {
             tempNama = labelNasiGoreng.getText();
@@ -91,21 +95,15 @@ public class Cafe2 extends JFrame {
         totalbayar.setText(String.valueOf(tempTotalBayar));
     }
 
-    private void field_NamaActionPerformed(ActionEvent e) {
-        // TODO add your code here
-    }
-
-
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Abdul Hadi Nur Haq
+        // Generated using JFormDesigner Evaluation license - Winda Hidayat
         JenisOrderPanel = new JPanel();
         DineIn = new JRadioButton();
         TakeAway = new JRadioButton();
         NomorMeja = new JTextField();
         NomorMejaLabel = new JLabel();
-        buttonok = new JButton();
         CustomerPanel = new JPanel();
         Nama = new JLabel();
         No_Hp = new JLabel();
@@ -129,6 +127,8 @@ public class Cafe2 extends JFrame {
         jmlTehManis = new JSpinner();
         totalbayar = new JTextField();
         okmenu = new JButton();
+        label1 = new JLabel();
+        label3 = new JLabel();
 
         //======== this ========
         setTitle("Cafe");
@@ -137,14 +137,13 @@ public class Cafe2 extends JFrame {
         //======== JenisOrderPanel ========
         {
             JenisOrderPanel.setBorder(new TitledBorder("Jenis Order"));
-            JenisOrderPanel.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (
-            new javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion"
-            , javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
-            , new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 )
-            , java. awt. Color. red) ,JenisOrderPanel. getBorder( )) ); JenisOrderPanel. addPropertyChangeListener (
-            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-            ) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( )
-            ; }} );
+            JenisOrderPanel.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax
+            . swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing
+            . border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .
+            Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red
+            ) ,JenisOrderPanel. getBorder( )) ); JenisOrderPanel. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override
+            public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName (
+            ) )) throw new RuntimeException( ); }} );
 
             //---- DineIn ----
             DineIn.setText("Dine In");
@@ -170,15 +169,6 @@ public class Cafe2 extends JFrame {
             //---- NomorMejaLabel ----
             NomorMejaLabel.setText("Nomor Meja");
 
-            //---- buttonok ----
-            buttonok.setText("OK");
-            buttonok.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    buttonokActionPerformed(e);
-                }
-            });
-
             GroupLayout JenisOrderPanelLayout = new GroupLayout(JenisOrderPanel);
             JenisOrderPanel.setLayout(JenisOrderPanelLayout);
             JenisOrderPanelLayout.setHorizontalGroup(
@@ -188,22 +178,16 @@ public class Cafe2 extends JFrame {
                         .addGroup(JenisOrderPanelLayout.createParallelGroup()
                             .addGroup(JenisOrderPanelLayout.createSequentialGroup()
                                 .addComponent(TakeAway)
-                                .addGap(0, 216, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(JenisOrderPanelLayout.createSequentialGroup()
-                                .addGroup(JenisOrderPanelLayout.createParallelGroup()
-                                    .addGroup(JenisOrderPanelLayout.createSequentialGroup()
-                                        .addComponent(DineIn)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(GroupLayout.Alignment.TRAILING, JenisOrderPanelLayout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(NomorMejaLabel)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(NomorMeja, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap())))
-                    .addGroup(GroupLayout.Alignment.TRAILING, JenisOrderPanelLayout.createSequentialGroup()
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonok)
-                        .addContainerGap())
+                                .addComponent(DineIn)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(GroupLayout.Alignment.TRAILING, JenisOrderPanelLayout.createSequentialGroup()
+                                .addGap(0, 190, Short.MAX_VALUE)
+                                .addComponent(NomorMejaLabel)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(NomorMeja, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35))))
             );
             JenisOrderPanelLayout.setVerticalGroup(
                 JenisOrderPanelLayout.createParallelGroup()
@@ -212,13 +196,11 @@ public class Cafe2 extends JFrame {
                         .addComponent(DineIn)
                         .addGap(1, 1, 1)
                         .addGroup(JenisOrderPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(NomorMeja, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NomorMejaLabel))
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                            .addComponent(NomorMejaLabel)
+                            .addComponent(NomorMeja, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(TakeAway)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonok)
-                        .addContainerGap())
+                        .addGap(36, 36, 36))
             );
         }
 
@@ -239,7 +221,6 @@ public class Cafe2 extends JFrame {
             field_Nama.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    field_NamaActionPerformed(e);
                     data_pelangganActionPerformed(e);
                 }
             });
@@ -275,40 +256,37 @@ public class Cafe2 extends JFrame {
                 CustomerPanelLayout.createParallelGroup()
                     .addGroup(CustomerPanelLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(CustomerPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                            .addGroup(CustomerPanelLayout.createSequentialGroup()
-                                .addComponent(Nama, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(field_Nama, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE))
-                            .addGroup(CustomerPanelLayout.createSequentialGroup()
-                                .addGroup(CustomerPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                    .addComponent(No_Hp, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Alamat, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(CustomerPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(field_Alamat, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                    .addComponent(field_No_Hp))))
-                        .addGap(18, 18, 18)
+                        .addGroup(CustomerPanelLayout.createParallelGroup()
+                            .addGroup(CustomerPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                .addComponent(No_Hp, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Alamat, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Nama, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(CustomerPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            .addComponent(field_Alamat, GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                            .addComponent(field_No_Hp, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                            .addComponent(field_Nama, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                         .addComponent(save)
-                        .addContainerGap(25, Short.MAX_VALUE))
+                        .addGap(19, 19, 19))
             );
             CustomerPanelLayout.setVerticalGroup(
                 CustomerPanelLayout.createParallelGroup()
                     .addGroup(CustomerPanelLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
+                        .addGap(2, 2, 2)
                         .addGroup(CustomerPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(field_Nama, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Nama))
+                            .addComponent(Nama)
+                            .addComponent(field_Nama, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(CustomerPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(field_No_Hp, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addComponent(No_Hp)
-                            .addComponent(save))
+                            .addComponent(field_No_Hp, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(CustomerPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(field_Alamat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Alamat))
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(Alamat)
+                            .addComponent(save)
+                            .addComponent(field_Alamat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(12, Short.MAX_VALUE))
             );
         }
 
@@ -321,6 +299,7 @@ public class Cafe2 extends JFrame {
 
             //---- jmlNasiGoreng ----
             jmlNasiGoreng.setModel(new SpinnerNumberModel(0, 0, null, 1));
+            jmlNasiGoreng.setEnabled(false);
 
             //---- hargaNasiAyamGeprek ----
             hargaNasiAyamGeprek.setText("13000");
@@ -333,6 +312,7 @@ public class Cafe2 extends JFrame {
 
             //---- jmlNasiAyamGeprek ----
             jmlNasiAyamGeprek.setModel(new SpinnerNumberModel(0, 0, null, 1));
+            jmlNasiAyamGeprek.setEnabled(false);
 
             //---- labelNasiAyamBakar ----
             labelNasiAyamBakar.setText("Nasi Ayam Bakar");
@@ -342,6 +322,7 @@ public class Cafe2 extends JFrame {
 
             //---- jmlNasiAyamBakar ----
             jmlNasiAyamBakar.setModel(new SpinnerNumberModel(0, 0, null, 1));
+            jmlNasiAyamBakar.setEnabled(false);
 
             //---- labelTehManis ----
             labelTehManis.setText("Teh Manis");
@@ -351,6 +332,7 @@ public class Cafe2 extends JFrame {
 
             //---- jmlTehManis ----
             jmlTehManis.setModel(new SpinnerNumberModel(0, 0, null, 1));
+            jmlTehManis.setEnabled(false);
 
             GroupLayout MenuPanelLayout = new GroupLayout(MenuPanel);
             MenuPanel.setLayout(MenuPanelLayout);
@@ -361,36 +343,36 @@ public class Cafe2 extends JFrame {
                         .addGroup(MenuPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                             .addGroup(MenuPanelLayout.createSequentialGroup()
                                 .addComponent(labelTehManis)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(hargaTehManis))
                             .addGroup(MenuPanelLayout.createSequentialGroup()
                                 .addComponent(labelNasiAyamBakar)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(hargaNasiAyamBakar))
-                            .addGroup(MenuPanelLayout.createSequentialGroup()
-                                .addComponent(labelNasiGoreng, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                                .addComponent(hargaNasiGoreng))
-                            .addGroup(MenuPanelLayout.createSequentialGroup()
-                                .addComponent(labelNasiAyamGeprek)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                                .addComponent(hargaNasiAyamGeprek)))
-                        .addGap(0, 18, Short.MAX_VALUE)
+                            .addGroup(GroupLayout.Alignment.LEADING, MenuPanelLayout.createSequentialGroup()
+                                .addGroup(MenuPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(labelNasiGoreng, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelNasiAyamGeprek, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                .addGroup(MenuPanelLayout.createParallelGroup()
+                                    .addComponent(hargaNasiAyamGeprek, GroupLayout.Alignment.TRAILING)
+                                    .addComponent(hargaNasiGoreng, GroupLayout.Alignment.TRAILING))))
+                        .addGap(0, 24, Short.MAX_VALUE)
                         .addGroup(MenuPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                             .addComponent(jmlNasiGoreng, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jmlNasiAyamGeprek, GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(jmlNasiAyamBakar, GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(jmlTehManis, GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE))
-                        .addContainerGap(36, Short.MAX_VALUE))
+                            .addComponent(jmlNasiAyamGeprek)
+                            .addComponent(jmlNasiAyamBakar)
+                            .addComponent(jmlTehManis))
+                        .addContainerGap(32, Short.MAX_VALUE))
             );
             MenuPanelLayout.setVerticalGroup(
                 MenuPanelLayout.createParallelGroup()
                     .addGroup(MenuPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(MenuPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelNasiGoreng)
                             .addComponent(jmlNasiGoreng, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(hargaNasiGoreng))
+                            .addComponent(hargaNasiGoreng)
+                            .addComponent(labelNasiGoreng))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MenuPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(labelNasiAyamGeprek)
@@ -406,23 +388,31 @@ public class Cafe2 extends JFrame {
                             .addComponent(labelTehManis)
                             .addComponent(jmlTehManis, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addComponent(hargaTehManis))
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(40, Short.MAX_VALUE))
             );
         }
 
         //---- totalbayar ----
         totalbayar.setEditable(false);
+        totalbayar.setBackground(new Color(51, 204, 255));
+        totalbayar.setFont(new Font("Tahoma", Font.BOLD, 12));
 
         //---- okmenu ----
         okmenu.setText("OK");
+        okmenu.setEnabled(false);
         okmenu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                buttonokActionPerformed(e);
-                okmenuActionPerformed(e);
                 okmenuActionPerformed(e);
             }
         });
+
+        //---- label1 ----
+        label1.setText("TOTAL BAYAR");
+
+        //---- label3 ----
+        label3.setText("CAFE UNIVERSE");
+        label3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -433,31 +423,43 @@ public class Cafe2 extends JFrame {
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                         .addComponent(CustomerPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(JenisOrderPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGap(34, 34, 34)
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addComponent(MenuPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                            .addGap(0, 222, Short.MAX_VALUE)
                             .addComponent(okmenu)
-                            .addComponent(MenuPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                        .addComponent(totalbayar, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(11, Short.MAX_VALUE))
+                            .addGap(8, 8, 8))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(label1)
+                            .addGap(0, 206, Short.MAX_VALUE))
+                        .addComponent(totalbayar, GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE))
+                    .addContainerGap())
+                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(label3)
+                    .addGap(288, 288, 288))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(18, 18, 18)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(label3)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addComponent(MenuPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(okmenu)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(totalbayar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(118, Short.MAX_VALUE))
+                            .addComponent(label1)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(totalbayar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addComponent(CustomerPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(JenisOrderPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(24, 24, 24))))
+                            .addGap(18, 18, 18)
+                            .addComponent(JenisOrderPanel, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(43, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -472,13 +474,12 @@ public class Cafe2 extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Abdul Hadi Nur Haq
+    // Generated using JFormDesigner Evaluation license - Winda Hidayat
     private JPanel JenisOrderPanel;
     private JRadioButton DineIn;
     private JRadioButton TakeAway;
     private JTextField NomorMeja;
     private JLabel NomorMejaLabel;
-    private JButton buttonok;
     private JPanel CustomerPanel;
     private JLabel Nama;
     private JLabel No_Hp;
@@ -502,6 +503,8 @@ public class Cafe2 extends JFrame {
     private JSpinner jmlTehManis;
     private JTextField totalbayar;
     private JButton okmenu;
+    private JLabel label1;
+    private JLabel label3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
