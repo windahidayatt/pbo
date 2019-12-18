@@ -3,48 +3,110 @@ package hellocucumber;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import static org.junit.Assert.*;
 
-class IsItFriday {
-    static String isItFriday(String today) {
-        return "Nope";
-    }
-    static String isItFridayy(String today2) {
-        return "Thank You";
+class makanan{
+    public String makanan;
+    public int jumlah;
+    public int harga;
+
+    public makanan(String makanan, int jumlah,int harga){
+        this.makanan = makanan;
+        this.jumlah = jumlah;
+        this.harga=harga;
     }
 }
-
 public class Stepdefs {
-    private String today;
-    private String today2;
-    private String actualAnswer;
-    private String actualAnswer2;
+    protected int jenis_order;
+    protected String keterangan;
+    protected String nama, no_hp, alamat;
 
-    @Given("today is Sunday")
-    public void today_is_Sunday() {
-        today = "Sunday";
-        today2 = "Sunday";
-    }
+    ArrayList<makanan> arrMakanan = new ArrayList<>();
 
-    @When("I ask whether it's Friday yet")
-    public void i_ask_whether_it_s_Friday_yet() {
-        actualAnswer = IsItFriday.isItFriday(today);
-        actualAnswer2 = IsItFriday.isItFridayy(today2);
-    }
-
-//    @Then("I should be told {string}")
-//    public void i_should_be_told(String expectedAnswer) {
-//        assertEquals(expectedAnswer, actualAnswer);
-//    }
-    @Then("^I should be told \"([^\"]*)\"$")
-    public void i_should_be_told(String expectedAnswer) throws Exception {
+    @Given("^Menampilkan jenis order$")
+    public void menampilkan_jenis_order() throws Exception {
         // Write code here that turns the phrase above into concrete actions
-        assertEquals(expectedAnswer, actualAnswer);
-    }
-    @Then("^I should be say \"([^\"]*)\"$")
-    public void i_should_be_say(String expectedAnswer) throws Exception {
-        // Write code here that turns the phrase above into concrete action
-        assertEquals(expectedAnswer, actualAnswer2);
+        System.out.println("1. Dine In");
+        System.out.println("2. Take Away");
     }
 
+    @When("^Saya memilih jenis order \"([^\"]*)\"$")
+    public void saya_memilih_jenis_order(int arg1){
+        // Write code here that turns the phrase above into concrete actions
+        this.jenis_order=arg1;
+    }
+
+    @Then("^Mencatat keterangan order \"([^\"]*)\"$")
+    public void mencatat_keterangan_order(String arg1){
+        // Write code here that turns the phrase above into concrete actions
+        this.keterangan=arg1;
+    }
+    @Given("^Menampilkan menu makanan$")
+    public void menampilkan_menu_makanan() throws Exception {
+        // Write code here that turns the phrase above into concrete actions
+        System.out.println("Nasi Goreng     10000");
+        System.out.println("Ayam Geprek     10000");
+    }
+    @When("^Saya memilih \"([^\"]*)\" sebanyak (\\d+) dengan harga (\\d+)$")
+    public void saya_memilih_sebanyak_dengan_harga(String arg1, int arg2, int arg3) {
+        // Write code here that turns the phrase above into concrete actions
+        arrMakanan.add(new makanan(arg1, arg2, arg3));
+    }
+
+    @Then("^Menghitung total bayar$")
+    public int menghitung_total_bayar(){
+        // Write code here that turns the phrase above into concrete actions
+        int total=0;
+        for(makanan e : arrMakanan){
+            total = total + e.harga;
+        }
+        return total;
+    }
+
+    @Given("^menampilkan form data pelanggan$")
+    public void menampilkan_form_data_pelanggan() throws Exception {
+        // Write code here that turns the phrase above into concrete actions
+        System.out.println("Nama Pelanggan : ");
+        System.out.println("Nomor Hp       : ");
+        System.out.println("Alamat         : ");
+
+    }
+
+    @When("^saya mengisi form data pelanggan \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+    public void saya_mengisi_form_data_pelanggan(String arg1, String arg2, String arg3) {
+        // Write code here that turns the phrase above into concrete actions
+        this.nama=arg1;
+        this.no_hp=arg2;
+        this.alamat=arg3;
+    }
+
+    @Then("^mencatat form data pelanggan \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+    public void mencatat_form_data_pelanggan(String arg1, String arg2, String arg3){
+        // Write code here that turns the phrase above into concrete actions
+        String FileName = "Data Pelanggan.txt";
+            try{
+                BufferedWriter out = new BufferedWriter(new FileWriter(FileName, true));
+                out.write("====== Data Pelanggan ======\n");
+                out.write("Nama     : " + arg1+ "\n");
+                out.write("No. Hp   : " + arg2+ "\n");
+                out.write("Alamat   : " + arg3 + "\n");
+                out.close();
+            }
+            catch(IOException i){
+                System.out.println("Exception occured" + i);
+            }
+    }
+
+    public void menampilkan(){
+        for(makanan e : arrMakanan){
+            System.out.printf( "%s  |  %d Rp.%d %n",e.makanan, e.jumlah, e.harga);
+        }
+    }
 }

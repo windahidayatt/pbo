@@ -1,0 +1,162 @@
+JFDML JFormDesigner: "7.0.0.6.255" Java: "11.0.4" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :::p, par l:::p {comp CustomerPanel:::::x, comp JenisOrderPanel:::::x}, space u:::p, par l {par t {comp okmenu:::p::p, comp MenuPanel:::p::p}, comp totalbayar::t:p:270:p}, space ::11:x}}"
+			"$verticalGroup": "par l {seq l {space s:::p, par l {seq {comp MenuPanel:::p::p, space :::p, comp okmenu:::p::p, space :::p, comp totalbayar:::p::p, space ::118:x}, seq {comp CustomerPanel:::p::p, space :::p, comp JenisOrderPanel:::::x, space :p:24:p}}}}"
+		} ) {
+			name: "this"
+			"title": "Cafe"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq t {space :::p, par l {seq l {comp TakeAway:::p::p, space :0:216:x}, seq {par l {seq l {comp DineIn:::p::p, space :0:0:x}, seq t {space :0:0:x, comp label2:::p::p, space s:::p, comp NomorMeja:::p:42:p}}, space :::p}}}, seq t {space :::x, comp buttonok:::p::p, space :::p}}"
+				"$verticalGroup": "par l {seq l {space :::p, comp DineIn:::p::p, space :p:1:p, par b {comp NomorMeja::b:p::p, comp label2::b:p::p}, space ::50:x, comp TakeAway:::p::p, space :::p, comp buttonok:::p::p, space :::p}}"
+			} ) {
+				name: "JenisOrderPanel"
+				"border": new javax.swing.border.TitledBorder( "Jenis Order" )
+				add( new FormComponent( "javax.swing.JRadioButton" ) {
+					name: "DineIn"
+					"text": "Dine In"
+					"$buttonGroup": new FormReference( "JenisOrder" )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "DineInActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JRadioButton" ) {
+					name: "TakeAway"
+					"text": "Take Away"
+					"$buttonGroup": new FormReference( "JenisOrder" )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "TakeAwayActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "NomorMeja"
+					"editable": false
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "Nomor Meja"
+					auxiliary() {
+						"JavaCodeGenerator.variableName": "NomorMejaLabel"
+					}
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "buttonok"
+					"text": "OK"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonokActionPerformed", true ) )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {space :p:10:p, par t {seq t {comp Nama:::p:52:p, space s:::p, comp field_Nama:::p:99:p}, seq t {par t {comp No_Hp:::p:52:p, comp Alamat:::p:52:p}, space s:::p, par l:::p {comp field_Alamat::::99:x, comp field_No_Hp:::::x}}}, space s:::p, comp save:::p::p, space ::25:x}}"
+				"$verticalGroup": "par l {seq l {space :p:8:p, par b {comp field_Nama::b:p::p, comp Nama::b:p::p}, space :::p, par b {comp field_No_Hp::b:p::p, comp No_Hp::b:p::p, comp save::b:p::p}, space :::p, par b {comp field_Alamat::b:p::p, comp Alamat::b:p::p}, space :::x}}"
+			} ) {
+				name: "CustomerPanel"
+				"border": new javax.swing.border.TitledBorder( "Data Customer" )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "Nama"
+					"text": "Nama"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "No_Hp"
+					"text": "No. Hp"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "Alamat"
+					"text": "Alamat"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "field_Nama"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "field_NamaActionPerformed", true ) )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "data_pelangganActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "field_No_Hp"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "data_pelangganActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "field_Alamat"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "data_pelangganActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "save"
+					"text": "SAVE"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "saveActionPerformed", true ) )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {space :::p, par t {seq {comp labelTehManis:::p::p, space ::75:x, comp hargaTehManis:::p::p}, seq {comp labelNasiAyamBakar:::p::p, space ::33:x, comp hargaNasiAyamBakar:::p::p}, seq {comp labelNasiGoreng:::p:68:p, space ::54:x, comp hargaNasiGoreng:::p::p}, seq {comp labelNasiAyamGeprek:::p::p, space ::25:x, comp hargaNasiAyamGeprek:::p::p}}, space :0:18:x, par l:::p {comp jmlNasiGoreng::l:p:58:p, comp jmlNasiAyamGeprek::l::0:x, comp jmlNasiAyamBakar::l::0:x, comp jmlTehManis::l::0:x}, space ::36:x}}"
+				"$verticalGroup": "par l {seq {space :::p, par b {comp labelNasiGoreng::b:p::p, comp jmlNasiGoreng::b:p::p, comp hargaNasiGoreng::b:p::p}, space :::p, par b {comp labelNasiAyamGeprek::b:p::p, comp jmlNasiAyamGeprek::b:p::p, comp hargaNasiAyamGeprek::b:p::p}, space :::p, par b {comp labelNasiAyamBakar::b:p::p, comp jmlNasiAyamBakar::b:p::p, comp hargaNasiAyamBakar::b:p::p}, space :::p, par b {comp labelTehManis::b:p::p, comp jmlTehManis::b:p::p, comp hargaTehManis::b:p::p}, space :::x}}"
+			} ) {
+				name: "MenuPanel"
+				"border": new javax.swing.border.TitledBorder( "Menu" )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "hargaNasiGoreng"
+					"text": "10000"
+				} )
+				add( new FormComponent( "javax.swing.JSpinner" ) {
+					name: "jmlNasiGoreng"
+					"model": &SpinnerNumberModel0 new javax.swing.SpinnerNumberModel {
+						minimum: 0
+					}
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "hargaNasiAyamGeprek"
+					"text": "13000"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "labelNasiGoreng"
+					"text": "Nasi Goreng"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "labelNasiAyamGeprek"
+					"text": "Nasi Ayam Geprek"
+				} )
+				add( new FormComponent( "javax.swing.JSpinner" ) {
+					name: "jmlNasiAyamGeprek"
+					"model": #SpinnerNumberModel0
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "labelNasiAyamBakar"
+					"text": "Nasi Ayam Bakar"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "hargaNasiAyamBakar"
+					"text": "13000"
+				} )
+				add( new FormComponent( "javax.swing.JSpinner" ) {
+					name: "jmlNasiAyamBakar"
+					"model": #SpinnerNumberModel0
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "labelTehManis"
+					"text": "Teh Manis"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "hargaTehManis"
+					"text": "3000"
+				} )
+				add( new FormComponent( "javax.swing.JSpinner" ) {
+					name: "jmlTehManis"
+					"model": #SpinnerNumberModel0
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "totalbayar"
+				"editable": false
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "okmenu"
+				"text": "OK"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonokActionPerformed", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "okmenuActionPerformed", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "okmenuActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 620, 365 )
+		} )
+		add( new FormNonVisual( "javax.swing.ButtonGroup" ) {
+			name: "JenisOrder"
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 45, 365 )
+		} )
+	}
+}
